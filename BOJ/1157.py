@@ -1,5 +1,5 @@
-S = input()
-S = S.upper()
+S = input().upper()
+
 li = [0 for _ in range(26)]
 # 등장 개수 세기
 for s in S:
