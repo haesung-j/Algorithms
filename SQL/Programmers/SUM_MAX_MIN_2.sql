@@ -1,0 +1,2 @@
+-- 최솟값 구하기
+SELECT min(DATETIME) 시간 FROM ANIMAL_INS;
