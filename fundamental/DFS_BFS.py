@@ -97,12 +97,7 @@ graph = [
     [0,0,0,0,0]
 ]
     
-
-x, y = 0, 0
-# 상,하,좌,우
-dx = [1, -1, 0, 0]
-dy = [0, 0, -1, 1]
-
+## DFS로 해결하기
 def dfs(x, y):
     # 주어진 범위 벗어나면 종료
     if x <= -1 or x >= n or y <= -1 or y >= m:
@@ -121,12 +116,9 @@ def dfs(x, y):
         return True
     return False
 
-n, m = map(int, input().split())
+n, m = 4, 5
+graph = [[0, 0, 1, 1, 0], [0, 0, 0, 1, 1], [1, 1, 1, 1, 1], [0, 0, 0, 0, 0]]
 
-graph = []
-for i in range(n):
-    graph.append(list(map(int, input())))
-    
 result = 0
 for i in range(n):
     for j in range(m):
@@ -134,6 +126,45 @@ for i in range(n):
             result += 1
             
 print(result)
+
+## BFS로 해결하기
+from collections import deque
+
+def bfs(x,y):
+    move = [(1,0), (-1,0), (0,1), (0,-1)]
+    queue = deque([(x,y)])
+    cnt = 0
+    
+    while queue:
+        cx, cy = queue.popleft()
+        # 방문 처리
+        if graph[cx][cy] == 0:
+            graph[cx][cy] = 1
+            cnt = 1
+            
+        # 가능한 인접노드 탐색 (4-방향) 및 모두 큐에 추가
+        for mov in move:
+            nx = cx + mov[0]
+            ny = cy + mov[1]
+            
+            if nx < 0 or ny <0 or nx >= n or ny >= m:
+                continue
+                
+            if graph[nx][ny] == 0:
+                queue.append((nx,ny))
+
+    return cnt
+
+n, m = 4, 5
+graph = [[0, 0, 1, 1, 0], [0, 0, 0, 1, 1], [1, 1, 1, 1, 1], [0, 0, 0, 0, 0]]
+
+res = 0
+for i in range(n):
+    for j in range(m):
+        if bfs(i,j) == 1:
+            res += 1
+            
+print(res)
 
 
 '''
