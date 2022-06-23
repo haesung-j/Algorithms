@@ -1,5 +1,4 @@
 # 블랙잭
-
 import sys
 n, m = map(int,sys.stdin.readline().split())
 

@@ -48,7 +48,7 @@ for _ in range(n):
 #             i += 1
 #     return res
 
-    
+
 # n = int(input())
 # for _ in range(n):
 #     text = input()
