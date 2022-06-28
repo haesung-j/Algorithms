@@ -24,7 +24,6 @@ def comp(x):
 # txt = '...awdwa..dawgf.awdg...'
 # while '..' in txt:
 #     txt = txt.replace('..', '.')
-#     print(txt)
 
 def solution(new_id):
     answer = ''
