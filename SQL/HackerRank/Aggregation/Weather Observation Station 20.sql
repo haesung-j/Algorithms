@@ -1,0 +1,1 @@
+SELECT round(median(LAT_N), 4) FROM STATION;
